@@ -66,7 +66,7 @@
 
 ## 🛠 사용 기술
 
-- [Ultralytics YOLOv11](https://docs.ultralytics.com/ko/tasks/classify/)
+- [Ultralytics YOLOv11n-cls](https://docs.ultralytics.com/ko/tasks/classify/)
 - [Roboflow](https://roboflow.com/) (데이터셋 관리 및 로드)
 - Python, Jupyter Notebook
 
