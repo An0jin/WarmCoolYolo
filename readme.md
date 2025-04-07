@@ -52,7 +52,7 @@
 
 ## 🗂 프로젝트 파일 구조
 
-\`\`\`
+```
 ├── dataset/                    # 로컬 데이터셋 (Roboflow에서 다운로드됨)
 ├── data collection.ipynb       # 이미지 업로드 및 Roboflow 연동
 ├── data visualization.ipynb    # 데이터 통계 및 시각화
@@ -60,7 +60,7 @@
 ├── train.ipynb                 # YOLOv11-CLS 모델 학습
 ├── score.ipynb                 # 모델 평가 및 결과 분석
 └── README.md                   # 프로젝트 소개 파일
-\`\`\`
+```
 
 ---
 
