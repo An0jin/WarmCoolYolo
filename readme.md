@@ -10,7 +10,7 @@
 
 
 ## 🏗 시스템 구성
-프로젝트는 다음 세 개의 주요 리포지토리로 구성되어 있습니다:
+프로젝트는 다음 다섯 개의 주요 리포지토리로 구성되어 있습니다:
 
 ### 1. [WarmCoolYolo](https://github.com/anyoungjin20040106/WarmCoolYolo)
 - YOLOv11-CLS 기반 퍼스널 컬러 분류 모델
