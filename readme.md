@@ -8,47 +8,36 @@
 
 ---
 
-## 🏗 시스템 구성 요소 관계 흐름
 
-```
-[ photon chat ]
-  -같은 퍼스널 컬러인 사람들 끼리 커뮤니티를 할수 있는 공간 구현
+## 🏗 시스템 구성
+프로젝트는 다음 세 개의 주요 리포지토리로 구성되어 있습니다:
 
-        ↑ 퍼스널 컬러 제공
+### 1. [WarmCoolYolo](https://github.com/anyoungjin20040106/WarmCoolYolo)
+- YOLOv11-CLS 기반 퍼스널 컬러 분류 모델
+- Roboflow를 통한 데이터셋 관리
+- 모델 학습 및 평가 파이프라인
 
-[ Unity (시작점)](https://github.com/anyoungjin20040106/WarmCoolunity)
-  - 사용자 얼굴 이미지 촬영
-  - 사용자 얼굴 이미지 촬영
-  - 분석 결과 기반 AR 메이크업 적용 (ARFoundation)
-  - ➕ 결과 기반으로 Photon Chat 연결
+### 2. [WarmCoolFastapi](https://github.com/anyoungjin20040106/WarmCoolFastapi)
+- FastAPI 기반 백엔드 서버
+- YOLOv11-CLS 모델 서빙
+- RESTful API 엔드포인트 제공
+- MySQL 데이터베이스 연동
 
-이미지 전송   ⇅결과 수신
+### 3. [WarmCoolUnity](https://github.com/anyoungjin20040106/WarmCoolUnity)
+- Unity 기반 AR 애플리케이션
+- ARFoundation을 통한 얼굴 인식
+- 가상 메이크업 적용
+- Photon 기반 실시간 채팅
 
-[ FastAPI 서버 ](https://github.com/anyoungjin20040106/WarmCoolfastapi)
-  - YOLOv11-CLS 모델 호출
-  - Unity에서 이미지 수신 → 추론 → 결과 응답
+### 4. [WarmCoolSQL](https://github.com/anyoungjin20040106/WarmCoolSQL)
+- 채팅 정보 관리
+- 유저 정보 관리
+- 퍼스널 컬러 해설
 
-이미지 전송   ⇅결과 수신
-
-[ YOLOv11-CLS 모델 (Ultralytics) ](https://github.com/anyoungjin20040106/WarmCoolYolo)
-  - 학습된 weight로 이미지 분류
-  - 퍼스널 컬러 결과 반환
-
-        ↑ 데이터 제공
-
-[ Roboflow & github]
-  - YOLOv11-CLS 학습용 데이터셋 제공=
-```
-
----
-
-## 🧠 핵심 기능
-
-- ✅ YOLOv11-CLS를 활용한 얼굴 이미지 분류
-- ✅ Roboflow를 통한 데이터셋 버전 관리 및 자동 다운로드
-- ✅ 학습, 평가, 시각화 전 과정이 포함된 Jupyter Notebook
-- ⏳ 향후 FastAPI, Unity, Photon과의 연동 예정
-
+### 5. [WarmCoolDataset](https://github.com/anyoungjin20040106/WarmCoolDataset)
+- roboflow를 활용한 데이터 수집
+- github를 활용한 데이터 수집
+- 데이터 전처리
 ---
 
 ## 🗂 프로젝트 파일 구조
@@ -68,15 +57,14 @@
 ## 🛠 사용 기술
 
 - [Ultralytics YOLOv11n-cls](https://docs.ultralytics.com/ko/tasks/classify/)
-- [Roboflow](https://roboflow.com/) (데이터셋 관리 및 로드)
 - Python, Jupyter Notebook
 
----
-
-## 🚀 학습 시작하기
-
-1. Roboflow API 키를 설정하고 데이터셋을 불러옵니다.
-2. \`train.ipynb\`를 실행해 YOLOv11-CLS 모델을 학습합니다.
-3. \`score.ipynb\`에서 성능을 평가하고 시각화합니다.
 
 ---
+
+## 💻 기술 스택
+- **AI/ML**: YOLOv11-CLS, Ultralytics
+- **백엔드**: FastAPI, MySQL
+- **프론트엔드**: Unity, ARFoundation
+- **네트워킹**: Photon PUN2
+- **데이터**: Roboflow
