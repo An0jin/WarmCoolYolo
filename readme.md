@@ -59,7 +59,6 @@
 ## 🛠 사용 기술
 
 - [![Ultralytics(YOLOv11-CLS)](https://img.shields.io/badge/YOLOv11--CLS(Ultralytics)-111F68?style=flat&logo=Ultralytics&logoColor=white)](https://docs.ultralytics.com/ko/tasks/classify/)
-- Python, Jupyter Notebook
 
 ---
 
