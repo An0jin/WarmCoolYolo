@@ -46,11 +46,11 @@
 
 ---
 
-## 🗂 최고의 성능
+## 🗂 모델 성능 평가
 
 ![히트맵](runs/classify/val2/confusion_matrix_normalized.png)
 
-**모델 성능:** `runs/classify/train2/weights/best.pt` (정확도: 75%)
+**최고 성능 모델:** `runs/classify/train2/weights/best.pt` (정확도: 75%)
 
 ---
 
