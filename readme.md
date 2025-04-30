@@ -47,7 +47,7 @@
 ---
 
 ## 🗂 최고의 성능
-![히트멥](runs\classify\val2\confusion_matrix_normalized.png)
+![히트멥](.\runs\classify\val2\confusion_matrix_normalized.png)
 runs\classify\train2\weights\best.pt (75%)
 ---
 
