@@ -1,73 +1,76 @@
-# 🎨 WarmCoolYolo - YOLO 기반 퍼스널 컬러 분류 모델
 
-## 📌 프로젝트 개요
+# WarmCool YOLO 이미지 분류 API
 
-이 프로젝트는 YOLOv11-CLS 모델을 기반으로 사용자의 얼굴 이미지에서 **퍼스널 컬러(웜톤/쿨톤)** 를 분류하는 딥러닝 모델을 개발하는 것을 목표로 합니다. Roboflow를 통해 데이터를 수집 및 관리하고, Ultralytics 라이브러리를 통해 모델을 학습 및 평가합니다.
+YOLO 모델을 사용한 이미지 분류 API 서비스입니다.
 
-향후 FastAPI를 이용한 API 서버 개발, Unity 기반 AR 가상 메이크업 기능, 커뮤니티 기능(Photon Engine 연동) 등으로 확장할 계획입니다.
+## 설치 방법
 
----
+1. 필요한 패키지 설치:
+```bash
+pip install -r requirements.txt
+```
 
-## 🏗 시스템 구성
+2. YOLO 모델을 Keras 형식으로 변환:
+```bash
+python save_keras_model.py
+```
+이 과정을 통해 best.pt 파일이 best.keras 파일로 변환됩니다.
 
-프로젝트는 다음 다섯 개의 주요 리포지토리로 구성되어 있습니다:
+## API 서버 실행
 
-### 1. [WarmCoolYolo](https://github.com/anyoungjin20040106/WarmCoolYolo)
+```bash
+python app.py
+```
 
-- YOLOv11-CLS 기반 퍼스널 컬러 분류 모델
-- Roboflow를 통한 데이터셋 관리
-- 모델 학습 및 평가 파이프라인
+서버는 기본적으로 http://localhost:8000 에서 실행됩니다.
 
-### 2. [WarmCoolFastapi](https://github.com/anyoungjin20040106/WarmCoolFastapi)
+## API 사용 방법
 
-- FastAPI 기반 백엔드 서버
-- YOLOv11-CLS 모델 서빙
-- RESTful API 엔드포인트 제공
-- Postgresql 데이터베이스 연동
+### 웹 인터페이스 사용
 
-### 3. [WarmCoolUnity](https://github.com/anyoungjin20040106/WarmCoolUnity)
+1. 브라우저에서 http://localhost:8000/docs 접속
+2. `/predict/` 엔드포인트 선택
+3. "Try it out" 버튼 클릭
+4. 이미지 파일 업로드
+5. "Execute" 버튼 클릭
 
-- Unity 기반 AR 애플리케이션
-- ARFoundation을 통한 얼굴 인식
-- 가상 메이크업 적용
-- Photon 기반 실시간 채팅
+### cURL 사용
 
-### 4. [WarmCoolSQL](https://github.com/anyoungjin20040106/WarmCoolSQL)
+```bash
+curl -X POST "http://localhost:8000/predict/" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "file=@이미지경로.jpg"
+```
 
-- 채팅 정보 관리
-- 유저 정보 관리
-- 퍼스널 컬러 해설
+### Python 예제
 
-### 5. [WarmCoolDataset](https://github.com/anyoungjin20040106/WarmCoolDataset)
+```python
+import requests
 
-- roboflow를 활용한 데이터 수집
-- github를 활용한 데이터 수집
-- 데이터 라벨링
+url = "http://localhost:8000/predict/"
+files = {"file": open("이미지경로.jpg", "rb")}
+response = requests.post(url, files=files)
+print(response.json())
+```
 
----
+## API 응답 형식
 
-## 🗂 프로젝트 파일 구조
+```json
+{
+  "filename": "업로드된파일명.jpg",
+  "predicted_class": "예측된클래스명",
+  "confidence": 0.95,
+  "class_probabilities": {
+    "class_0": 0.01,
+    "class_1": 0.02,
+    "class_2": 0.95,
+    "class_3": 0.02
+  }
+}
+```
 
-├── dataset/                    # 로컬 데이터셋 (Roboflow에서 다운로드됨)
-├── data collection.ipynb       # 이미지 업로드 및 Roboflow 연동
-├── train.ipynb                 # YOLOv11-CLS 모델 학습
-├── score.ipynb                 # 모델 평가 및 결과 분석
-└── README.md                   # 프로젝트 소개 파일
+## 설정 변경
 
----
+`app.py` 파일에서 다음 항목을 수정할 수 있습니다:
 
-## 🛠 사용 기술
-
-- [![Ultralytics(YOLOv11-CLS)](https://img.shields.io/badge/YOLOv11--CLS(Ultralytics)-111F68?style=flat&logo=Ultralytics&logoColor=white)](https://docs.ultralytics.com/ko/tasks/classify/)
-
----
-
-## 💻 기술 스택
-
-- **AI/ML**: ![Ultralytics(YOLOv11-CLS)](https://img.shields.io/badge/YOLOv11--CLS-111F68?style=flat&logo=Ultralytics&logoColor=white)
-- **백엔드**: ![FastAPI](https://img.shields.io/badge/-FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-- **DB** : ![Postgresql](https://img.shields.io/badge/-postgresql-4169E1?style=flat&logo=postgresql&logoColor=white)
-- **프론트엔드**: ![Unity(ARFoundation)](https://img.shields.io/badge/-ARFoundation-000000?style=flat&logo=unity&logoColor=white)
-- **네트워킹**: ![Photon Chat](https://img.shields.io/badge/-Photon%20Chat-004480?style=flat&logo=photon&logoColor=white)
-- **데이터 수집**: ![Roboflow](https://img.shields.io/badge/-roboflow-6706CE?style=flat&logo=roboflow&logoColor=white),![github](https://img.shields.io/badge/-github-000000?style=flat&logo=github&logoColor=white)
-- **디자인**: ![Photoshop](https://img.shields.io/badge/-Photoshop-31A8FF?style=flat&logo=adobe-photoshop&logoColor=white)
+1. `MODEL_PATH`: Keras 모델 파일 경로
+2. `class_names`: 클래스 이름 목록 (실제 클래스 이름으로 업데이트 필요)
+3. 이미지 전처리 함수에서 이미지 크기와 정규화 방법
