@@ -47,8 +47,11 @@
 ---
 
 ## 🗂 최고의 성능
-![히트멥](.\runs\classify\val2\confusion_matrix_normalized.png)
-runs\classify\train2\weights\best.pt (75%)
+
+![히트맵](runs/classify/val2/confusion_matrix_normalized.png)
+
+**모델 성능:** `runs/classify/train2/weights/best.pt` (정확도: 75%)
+
 ---
 
 ## 🛠 사용 기술
