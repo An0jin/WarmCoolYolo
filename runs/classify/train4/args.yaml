@@ -12,8 +12,8 @@ save_period: -1
 cache: false
 device: null
 workers: 8
-project: D:\GitHub\WarmCoolYolo\runs\classify
-name: train4
+project: ./runs/classify
+name: train5
 exist_ok: false
 pretrained: true
 optimizer: auto
@@ -102,4 +102,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: D:\GitHub\WarmCoolYolo\runs\classify\train4
+save_dir: runs\classify\train5
