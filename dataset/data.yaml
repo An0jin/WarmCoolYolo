@@ -1,0 +1,9 @@
+names:
+- fallWarm
+- springWarm
+- summerCool
+- winterCool
+nc: 4
+test: ../test/images
+train: ../train/images
+val: ../valid/images
