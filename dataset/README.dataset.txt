@@ -1,6 +1,6 @@
-# personalcolor > 2024-04-02 12:52pm
-https://universe.roboflow.com/nemesis-eg9lw/personalcolor
+# facekind > facekind_v3
+https://universe.roboflow.com/jayshen-9iil4/facekind-6ohgo
 
 Provided by a Roboflow user
-License: MIT
+License: CC BY 4.0
 
