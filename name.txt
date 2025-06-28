@@ -1,4 +1,0 @@
-fallWarm
-springWarm
-summerCool
-winterCool

@@ -14,14 +14,14 @@
 
 ### 1. [WarmCoolYolo](https://github.com/anyoungjin20040106/WarmCoolYolo)
 
-- YOLOv11-CLS 기반 퍼스널 컬러 분류 모델
+- YOLO12 기반 퍼스널 컬러 분류 모델
 - Roboflow를 통한 데이터셋 관리
 - 모델 학습 및 평가 파이프라인
 
 ### 2. [WarmCoolFastapi](https://github.com/anyoungjin20040106/WarmCoolFastapi)
 
 - FastAPI 기반 백엔드 서버
-- YOLOv11-CLS 모델 서빙
+- YOLOv12 모델 서빙
 - RESTful API 엔드포인트 제공
 - Postgresql 데이터베이스 연동
 
@@ -48,12 +48,33 @@
 
 ## 🗂 모델 성능 평가
 
-![히트맵](runs/classify/val6/confusion_matrix_normalized.png)
+### 1학기
 
-**최고 성능 모델:** `runs/classify/train6/weights/best.pt` (정확도: 91%)
+    ![히트맵](runs/classify/val6/confusion_matrix.png)
+
+    **최고 성능 모델:** `runs/classify/train6/weights/best.pt` (정확도: 91%)
+
+### 2학기
+
+    ![히트맵](runs/detect/val2/confusion_matrix.png)
+
+
+| 계절 | 재현율            | 정밀도            |
+| ---- | ----------------- | ----------------- |
+| 봄   | 0.894736842105263 | 0.883928571428571 |
+| 여름 | 0.918778427550357 | 0.805698005698006 |
+| 가을 | 0.783477681545636 | 0.846652267818574 |
+| 겨울 | 0.93859649122807  | 0.898081534772182 |
+| 평균 | 0.883897360607332 | 0.858590094929333 |
+
+**최고 성능 모델:** `runs/detect/train2/weights/best.pt` (정확도: 0.853571956811123%)
 
 ---
 
 ## 🛠 사용 기술
 
+### 1학기
 - [![Ultralytics(YOLOv11-CLS)](https://img.shields.io/badge/YOLOv11--CLS(Ultralytics)-111F68?style=flat&logo=Ultralytics&logoColor=white)](https://docs.ultralytics.com/ko/tasks/classify/)
+
+### 2학기
+- [![Ultralytics(YOLOv12)](https://img.shields.io/badge/YOLOv12(Ultralytics)-111F68?style=flat&logo=Ultralytics&logoColor=white)](https://docs.ultralytics.com/ko/models/yolo12/)
