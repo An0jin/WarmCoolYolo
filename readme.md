@@ -48,14 +48,6 @@
 
 ## 🗂 모델 성능 평가
 
-### 1학기
-
-    ![히트맵](runs/classify/val6/confusion_matrix.png)
-
-    **최고 성능 모델:** `runs/classify/train6/weights/best.pt` (정확도: 91%)
-
-### 2학기
-
     ![히트맵](runs/detect/val2/confusion_matrix.png)
 
 
